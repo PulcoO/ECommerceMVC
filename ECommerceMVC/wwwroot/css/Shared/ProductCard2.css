@@ -1,0 +1,117 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+
+a,a:hover,a:focus{
+    text-decoration:none;
+    color:black;
+}
+.product-card {
+    font-family: 'Josefin Sans', sans-serif;
+    color:black;
+    position: relative;
+    border-radius: 2px;
+    height: 400px;
+    margin-bottom: 25px;
+    transition: all 300ms ease-out;
+    width: 350px;
+}
+    .product-card:hover {
+        box-shadow: 0 5px 14px rgba(0, 0, 0, .12);
+    }
+        .product-card:hover .product-card_button {
+            display: block;
+        }
+        .product-card:hover .product-card_title p {
+            display: inline-block;
+            border-bottom: 3px solid #000;
+        }
+.product-card_form {
+    height: 100%;
+    margin: 10px;
+}
+.product-card_link{
+    position:relative;
+    left:0;
+    right:0;
+    top:0;
+    height: 80%;
+}
+.product-card_img-wrap{
+    position: relative;
+    height:350px;
+    width:100%;
+}
+.product-card_img-inner {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FCFBFC;
+}
+    .product-card_img-inner img {
+        display: block;
+        height: 100%;
+        width: 100%;
+        margin: auto;
+    }
+.product-card_stars_container{
+    position:relative;
+    height:5%;
+    margin-bottom:12px;
+    width:100%;
+    background-color:aquamarine;
+}
+
+.product-card_title {
+    font-size: 12px;
+    line-height: 1.5;
+    font-family: 'Josefin Sans', sans-serif;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.25px;
+}
+.product-card_prices {
+    font-size: 12px;
+    line-height: 1.5;
+    font-family: 'Josefin Sans', sans-serif;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 12px;
+}
+.product-card_button {
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    display: none;
+    font-size: 12px;
+    line-height: 1.5;
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.25px;
+    height: 15%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #34c1bb;
+    border-color: #34c1bb;
+    text-align: center;
+}
+    .product-card_button:hover {
+        color: white;
+        background-color: black;
+        border-color: white;
+    }
+    .product-card_button button {
+        font-family: 'Josefin Sans', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: white;
+        position: relative;
+        height: 100%;
+        width: 100%;
+        padding: 20px;
+        font-size: 12px;
+    }

@@ -1,0 +1,129 @@
+﻿@model ECommerceMVC.Models.Products.Product
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description_Short" class="control-label"></label>
+                <input asp-for="Description_Short" class="form-control" />
+                <span asp-validation-for="Description_Short" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description_Long" class="control-label"></label>
+                <input asp-for="Description_Long" class="form-control" />
+                <span asp-validation-for="Description_Long" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weight" class="control-label"></label>
+                <input asp-for="Weight" class="form-control" />
+                <span asp-validation-for="Weight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrincipalColor" class="control-label"></label>
+                <select asp-for="PrincipalColor"
+                        class="form-control"
+                        asp-items="Html.GetEnumSelectList<ECommerceMVC.Models.Products.Color>()">
+                    <option selected="selected" value="">Please select a color</option>
+                </select>
+                <span asp-validation-for="PrincipalColor" class="text-danger"></span>
+            </div>
+            @if (ViewData["ManufacturerId"] != null)
+            {
+                <div class="form-group">
+                    <label asp-for="ManufacturerId" class="control-label"></label>
+                    <select asp-for="ManufacturerId" class="form-control" asp-items="ViewBag.ManufacturerId"></select>
+                </div>
+            }
+            else
+            {
+                <div class="form-group d-none">
+                    <label asp-for="ManufacturerId" class="control-label"></label>
+                    <input asp-for="ManufacturerId" class="form-control" />
+                    <span asp-validation-for="ManufacturerId" class="text-danger"></span>
+                </div>
+            }
+            <div class="form-group">
+                <label asp-for="Height" class="control-label"></label>
+                <input asp-for="Height" class="form-control" />
+                <span asp-validation-for="Height" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Width" class="control-label"></label>
+                <input asp-for="Width" class="form-control" />
+                <span asp-validation-for="Width" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lenght" class="control-label"></label>
+                <input asp-for="Lenght" class="form-control" />
+                <span asp-validation-for="Lenght" class="text-danger"></span>
+            </div>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                Save
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Is it your last word ?</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                Do you also want to add images related to this all new product?
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" value="Create" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="submit" value="Create" id="no" class="btn btn-secondary">No, Just Save it</button>
+                            <button type="submit" value="Create" id="yes" class="btn btn-primary">Yes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script>
+    $(document).ready(function () {
+        var submitActor = null;
+        $('form').on('submit', function (e) {
+            var red = $('#redirection').val($(submitActor).attr("id"))
+        })
+        $("button").click(function (event) {
+            submitActor = this;
+        });
+    });
+
+</script>
+}

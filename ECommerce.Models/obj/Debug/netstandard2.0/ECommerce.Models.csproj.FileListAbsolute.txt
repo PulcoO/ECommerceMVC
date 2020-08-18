@@ -1,0 +1,8 @@
+D:\Repository\POECSharp\Ecommerce\ECommerce.Models\bin\Debug\netstandard2.0\ECommerce.Models.deps.json
+D:\Repository\POECSharp\Ecommerce\ECommerce.Models\bin\Debug\netstandard2.0\ECommerce.Models.dll
+D:\Repository\POECSharp\Ecommerce\ECommerce.Models\obj\Debug\netstandard2.0\ECommerce.Models.csprojAssemblyReference.cache
+D:\Repository\POECSharp\Ecommerce\ECommerce.Models\obj\Debug\netstandard2.0\ECommerce.Models.AssemblyInfoInputs.cache
+D:\Repository\POECSharp\Ecommerce\ECommerce.Models\obj\Debug\netstandard2.0\ECommerce.Models.AssemblyInfo.cs
+D:\Repository\POECSharp\Ecommerce\ECommerce.Models\bin\Debug\netstandard2.0\ECommerce.Models.pdb
+D:\Repository\POECSharp\Ecommerce\ECommerce.Models\obj\Debug\netstandard2.0\ECommerce.Models.dll
+D:\Repository\POECSharp\Ecommerce\ECommerce.Models\obj\Debug\netstandard2.0\ECommerce.Models.pdb

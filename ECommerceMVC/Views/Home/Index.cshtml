@@ -1,0 +1,19 @@
+﻿@model IEnumerable<ECommerceMVC.Models.Products.Product>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Home/Index.css" />
+    <link rel="stylesheet" href="~/css/Shared/ProductCard.css" />
+    <link rel="stylesheet" href="~/css/Shared/ProductCard2.css" />
+}
+
+    <div class="product_container" style="display:flex;flex-wrap:wrap;justify-content:center;margin:10px auto 0;">
+        @foreach (var product in Model)
+        {
+            //<partial name="_ProductsCards" model="product"/>
+            <partial name="_ProductsCards2" model="product"/>
+        }
+    </div>
+
