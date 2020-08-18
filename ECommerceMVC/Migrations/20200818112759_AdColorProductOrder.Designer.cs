@@ -4,14 +4,16 @@ using ECommerceMVC.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ECommerceMVC.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200818112759_AdColorProductOrder")]
+    partial class AdColorProductOrder
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -172,9 +174,11 @@ namespace ECommerceMVC.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("AdressDeliveryCity")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("AdressDeliveryCountry")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("AdressDeliveryOption_1")
@@ -184,15 +188,19 @@ namespace ECommerceMVC.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("AdressDeliveryPostalCode")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("AdressDeliveryStreetName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("AdressFacturationCity")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("AdressFacturationCountry")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("AdressFacturationOption_1")
@@ -202,12 +210,15 @@ namespace ECommerceMVC.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("AdressFacturationPostalCode")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("AdressFacturationStreetName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ClientId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("Date")
@@ -217,6 +228,7 @@ namespace ECommerceMVC.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("State")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("Total")
@@ -245,7 +257,13 @@ namespace ECommerceMVC.Migrations
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
+                    b.Property<double>("ProductPrice")
+                        .HasColumnType("float");
+
                     b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("color")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -507,7 +525,9 @@ namespace ECommerceMVC.Migrations
                 {
                     b.HasOne("ECommerceMVC.Models.Clients.Client", "Client")
                         .WithMany("Order")
-                        .HasForeignKey("ClientId");
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("ECommerceMVC.Models.Orders.Product_Order", b =>

@@ -34,13 +34,20 @@ namespace ECommerceMVC
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+            //identity
             services.AddDefaultIdentity<Client>(options => 
             {
                 options.SignIn.RequireConfirmedAccount = true;
             })
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            //authentifications
             services.AddAuthentication("Identity.Application")
                 .AddCookie();
+            // sessions
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromDays(1);
+            });
             services.AddScoped<IManufacturerRepository, ManufacturerRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddControllersWithViews();
@@ -65,6 +72,8 @@ namespace ECommerceMVC
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseSession();
 
             app.UseAuthentication();
             app.UseAuthorization();

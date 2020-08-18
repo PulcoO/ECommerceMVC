@@ -30,7 +30,6 @@ namespace ECommerceMVC.Controllers
         // GET: Products
         public async Task<ActionResult<ICollection<Product>>> Index()
         {
-            
             return View(await _productRepository.GetProducts());
         }
 
@@ -88,6 +87,8 @@ namespace ECommerceMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Description_Short,Description_Long,Weight,Price,PrincipalColor,ManufacturerId,Height,Width,Lenght")] Product product, string redirection)
         {
+            //reusir un instancier a 0 une Icollection de productImage
+            //ICollection<Product_Image> product_Images = new ICollection<Product_Image>();
             if (ModelState.IsValid)
             {
                 _context.Add(product);

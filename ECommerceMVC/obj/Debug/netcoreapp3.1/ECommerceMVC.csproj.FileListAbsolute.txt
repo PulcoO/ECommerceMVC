@@ -517,3 +517,9 @@ D:\Repository\Ecommerce(Poe)\ECommerceMVC\ECommerceMVC\obj\Debug\netcoreapp3.1\R
 D:\Repository\Ecommerce(Poe)\ECommerceMVC\ECommerceMVC\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Error.cshtml.g.cs
 D:\Repository\Ecommerce(Poe)\ECommerceMVC\ECommerceMVC\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 D:\Repository\Ecommerce(Poe)\ECommerceMVC\ECommerceMVC\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
+D:\Repository\Ecommerce(Poe)\ECommerceMVC\ECommerceMVC\obj\Debug\netcoreapp3.1\Razor\Views\Cart\Index.cshtml.g.cs
+D:\Repository\Ecommerce(Poe)\ECommerceMVC\ECommerceMVC\obj\Debug\netcoreapp3.1\Razor\Views\Orders\Create.cshtml.g.cs
+D:\Repository\Ecommerce(Poe)\ECommerceMVC\ECommerceMVC\obj\Debug\netcoreapp3.1\Razor\Views\Orders\Delete.cshtml.g.cs
+D:\Repository\Ecommerce(Poe)\ECommerceMVC\ECommerceMVC\obj\Debug\netcoreapp3.1\Razor\Views\Orders\Details.cshtml.g.cs
+D:\Repository\Ecommerce(Poe)\ECommerceMVC\ECommerceMVC\obj\Debug\netcoreapp3.1\Razor\Views\Orders\Edit.cshtml.g.cs
+D:\Repository\Ecommerce(Poe)\ECommerceMVC\ECommerceMVC\obj\Debug\netcoreapp3.1\Razor\Views\Orders\Index.cshtml.g.cs

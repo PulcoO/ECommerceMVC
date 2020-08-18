@@ -1,11 +1,15 @@
 ﻿@model ECommerceMVC.Models.Products.Product
 
+
+
 <article class="product-card">
-    <form action="/card/add" method="post" id="@Model.Id" enctype="multipart/form-data" class="product-card_form">
+    <form action="/cart/add" name="@Model.Id" method="post" id="@Model.Id" enctype="multipart/form-data" class="product-card_form">
         <a href="/products/Details/@Model.Id" class="product-card_link">
             <div class="product-card_image-wrap">
                 <div class="product-card_image-wrap-top">
-                    <span class="subtle">@Model.Name</span>
+                    <div class="product-badge product-badge-new">
+                        <p>NEW</p>
+                    </div>
                     <div class="product-card_image_wrap-top-icons u-float-right">
                         <svg fill="#888888" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0 0h24v24H0z" fill="none" />
@@ -18,14 +22,26 @@
                     </div>
                 </div>
                 <div class="product-card_img-inner">
-                    <div class="product-badge product-badge-new"></div>
-                    <img src="~/images/@(Model.Product_Images.First().ImageName)" />
+                    @if (Model.Product_Images.Count == 0)
+                    {
+                        <img src="~/ImagesDefault/NoImage.png" />
+                    }
+                    else
+                    {
+                        <img src="~/images/@(Model.Product_Images.First().ImageName)" />
+                    }
+
                 </div>
                 <fieldset class="product_option">
+                    <div id="select@(Model.Id)">
+                        option color 1 
+                    </div>
                     
                 </fieldset>
             </div>
-            <div class="product-card_stars_container"></div>
+            <div class="product-card_stars_container">
+                ★ ★ ★ ★ ★
+            </div>
             <div class="product-card_title">
                 <p>@Model.Name</p>
             </div>
@@ -36,9 +52,10 @@
             </div>
         </a>
         <div class="product-card_button">
-            <button type="submit" class="btn">
+            <a href=@Url.Action("Add", "Cart", Model)  class="btn">
                 ADD TO CART
-            </button>
+            </a>
+            
         </div>
         @*<a href="/client/my-favorites" class="wishlist_icon" title="Login to add favorites" aria-label="Lgin to add favorites">
             <svg height="68" viewBox="0 0 78 68" width="78" xmlns="http://www.w3.org/2000/svg" role="presentation"><title>Heart Icon</title><path fill="#000" d="m40.665392 6.33120114-1.5908222 1.44989339-1.5908222-1.54655295c-8.5506692-8.31272211-22.4703633-8.31272211-31.02103249 0-4.17590823 4.05970152-6.46271511 9.37597722-6.46271511 15.07889122s2.28680688 11.0191898 6.46271511 15.0788913l30.42447419 29.5778252 2.1873805 2.0298507 32.5124283-31.6076759c8.5506692-8.3127221 8.5506692-21.8450604 0-30.15778252-8.4512428-8.21606255-22.3709369-8.21606255-30.9216061.09665956zm28.2849648 26.07665906-29.8764166 28.9434628-29.87641654-29.0450189c-3.23835283-3.1482362-4.90976075-7.2104766-4.90976075-11.5773851 0-4.3669083 1.77587091-8.5307047 4.90976075-11.57738505 3.23835294-3.14823631 7.62579864-4.77313247 11.90878144-4.77313247 4.2829827 0 8.6704286 1.62489616 11.9087814 4.77313247l6.0588537 5.89024855 6.0588537-5.89024855c6.5811687-6.39802862 17.2363942-6.39802862 23.8175629 0 6.5811686 6.49958465 6.5811686 16.85829765 0 23.25632625z"></path></svg>
@@ -46,3 +63,10 @@
 
     </form>
 </article>
+
+
+<script>
+
+
+</script>
+ 
