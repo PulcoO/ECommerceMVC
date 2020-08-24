@@ -46,11 +46,11 @@ namespace ECommerceMVC.Models.Orders
      
         public string State { get; set; }
         
-        public Client Client { get; set; }
+        public virtual Client Client { get; set; }
         
         public string ClientId { get; set; }
 
-        public ICollection<Product_Order> OrderDetails { get; set; }
+        public virtual ICollection<Product_Order> OrderDetails { get; set; }
 
 
     }

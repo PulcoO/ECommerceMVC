@@ -1,19 +1,79 @@
 ﻿@model IEnumerable<ECommerceMVC.Models.Products.Product>
 @{
     ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @section Styles {
     <link rel="stylesheet" href="~/css/Home/Index.css" />
-    <link rel="stylesheet" href="~/css/Shared/ProductCard.css" />
     <link rel="stylesheet" href="~/css/Shared/ProductCard2.css" />
 }
+<section class="image_wraper">
+    <div class="header-banner" style="background-image: url('https://images.contentstack.io/v3/assets/bltefdd0b53724fa2ce/blt7597003f030bf229/5e54a25326150d0da9902e85/blog-cloud-piggy-bank-banner.jpg');">
+        <div class="header-banner__overlay">
 
-    <div class="product_container" style="display:flex;flex-wrap:wrap;justify-content:center;margin:10px auto 0;">
-        @foreach (var product in Model)
-        {
-            //<partial name="_ProductsCards" model="product"/>
-            <partial name="_ProductsCards2" model="product"/>
-        }
+        </div>
+        <div class="header-banner__content">
+            <div class="header-banner__title">
+                <div class="header-banner__subtitle">
+                    Just In
+                </div>
+                <div class="header-banner__title__title">
+                    <h1>
+                        piggy bank
+                        <br />
+                        for everyone
+                    </h1>
+                </div>
+                
+            </div>
+            <a asp-action="ShoppingList" asp-controller="Products" class="home__hero-btn button button--large button--white" aria-label="Shop now for styles for everyone">shop now</a>
+        </div>
     </div>
 
+</section>
+    
+<section class="large-card">
+
+    <div class="large-card__container">
+        <img src="~/ImagesDefault/tirelire-ours-pliage-japonais_720x.jpg" class="image">
+        <div class="large_card__content">
+            <div class="large_card__title">
+                <div class="large_card__title__title">
+                    <h1>
+                        FOR CHILDREN
+                    </h1>
+                </div>
+                <a asp-action="ShoppingList" asp-controller="Products" class="home__hero-btn button button--large button--white" aria-label="Shop now for styles for everyone">shop now</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="large-card__container">
+        <img src="~/ImagesDefault/robot.jpg" class="image">
+        <div class="large_card__content">
+            <div class="large_card__title">
+                <div class="large_card__title__title">
+                    <h1>
+                        FOR TENNAGER
+                        <br />
+                        OR
+                        <br />
+                        "GRAND" ADULT
+                    </h1>
+                </div>
+                <a asp-action="ShoppingList" asp-controller="Products" class="home__hero-btn button button--large button--white" aria-label="Shop now for styles for everyone">shop now</a>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="">
+
+</section>
+
+@section Scripts {
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

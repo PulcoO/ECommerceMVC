@@ -7,25 +7,31 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ECommerceMVC.Models;
 using ECommerceMVC.Interfaces;
+using ECommerceMVC.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ECommerceMVC.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext _context;
         private readonly ILogger<HomeController> _logger;
         private readonly IProductRepository _productRepository;
         
 
-        public HomeController(ILogger<HomeController> logger, IProductRepository productRepository)
+        public HomeController(ILogger<HomeController> logger, IProductRepository productRepository, ApplicationDbContext context)
         {
+            _context = context;
             _logger = logger;
-            this._productRepository = productRepository;
+            _productRepository = productRepository;
         }
-
-        public async Task<IActionResult> IndexAsync()
+        
+        public ActionResult IndexAsync()
         {
-            //await _productRepository.GetProducts();
-            return View(await _productRepository.GetProducts());
+            
+            return View();
         }
 
         public IActionResult Privacy()

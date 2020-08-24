@@ -10,6 +10,7 @@ using ECommerceMVC.Models.Products;
 using System.ComponentModel;
 using System.Drawing;
 using ECommerceMVC.Interfaces;
+using ECommerceMVC.Models.ViewModels;
 
 namespace ECommerceMVC.Controllers
 {
@@ -32,7 +33,10 @@ namespace ECommerceMVC.Controllers
         {
             return View(await _productRepository.GetProducts());
         }
-
+        public ActionResult ShoppingList()
+        {
+            return View("ShoppingList", _context.Products);
+        }
         // GET: Products/Details/5
         public async Task<ActionResult<Product>> Details(int? id)
         {
@@ -49,6 +53,7 @@ namespace ECommerceMVC.Controllers
 
             return View(product);
         }
+        // GET: Products/DetailsCard/5
         public async Task<ActionResult<Product>> DetailsCard(int? id)
         {
             if (id == null)
@@ -61,6 +66,9 @@ namespace ECommerceMVC.Controllers
             {
                 return NotFound();
             }
+            var upSellProduct = _context.Products.Find(11);
+            ViewBag.upsellProduct = upSellProduct;
+
             return View("DetailsCard",product);
         }
 
@@ -180,6 +188,32 @@ namespace ECommerceMVC.Controllers
             _context.Products.Remove(product);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+        // GET : Products/OnGetPartialTop5
+        public async Task<ActionResult<ICollection<DTOProductWithQuantity>>> OnGetPartialTop5()
+        {
+            IEnumerable<DAOProductIdQuantitySum> result = await _productRepository.Top5();
+            // rentrer la donnée dans un tableau : deux valeurs => products et products Id;
+            // construire un iEnumérable des 5 produits en même temps et aller les peuplers correctement
+            // ou creer une ViewClass avec trois entrée : id product quantity ! et envoyer ca ! changer le type dans la view as well
+            List<DTOProductWithQuantity> model = new List<DTOProductWithQuantity>();
+
+            foreach (var item in result)
+            {
+                var product = await _productRepository.GetProduct(item.ProductId);
+                DTOProductWithQuantity DTO = new DTOProductWithQuantity
+                {
+                    product = product,
+                    quantity = item.QuantitySum
+                };
+                model.Add(DTO);
+        
+            };
+
+            return PartialView("_Products__Top5_Charts", model);
+
+
         }
 
         private bool ProductExists(int id)

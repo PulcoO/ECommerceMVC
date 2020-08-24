@@ -1,1 +1,123 @@
-﻿
+﻿@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+.image_wraper{
+    position:relative;
+    height:700px;
+    z-index:10;
+    margin-bottom:2rem;
+}
+
+.header-banner {
+    background-color: white;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 700px;
+}
+
+.header-banner__overlay {
+    height: 100%;
+    width: 100%;
+    background: rgb(43,42,42);
+    background: linear-gradient(90deg, rgba(225,247,246,0.9) 5%, rgba(255,255,255,0) 95%);
+}
+
+.header-banner__content {
+    position:absolute;
+    top:50%;
+    left:7%;
+    transform: translateY(-50%)
+}
+.header-banner__title {
+    position:static;
+}
+.header-banner__subtitle {
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-align: left;
+    letter-spacing: .3em;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    line-height: 1;
+}
+.header-banner__content:hover .header-banner__subtitle {
+    color: black;
+}
+.header-banner__content:hover .header-banner__title__title{
+    color: black;
+}
+
+.header-banner__title__title {
+    font-size: 55px;
+    letter-spacing: .15em;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    line-height: 1;
+    text-align: left;
+    margin-bottom: 2rem;
+}
+
+    .header-banner__title__title h1 {
+        font-weight: 700;
+    }
+.large-card{
+    position: relative;
+    display:flex;
+    justify-content:space-between;
+    flex-flow:row wrap;
+    width:100%;
+    height:700px;
+}
+.large-card__container {
+    position: relative;
+    width: 49%;
+    height: -webkit-fill-available;
+}
+    .large-card__container:hover > img {
+        filter: grayscale(60%);
+        filter: blur(5px);
+    }
+
+    .large-card__container img {
+        width: 100%;
+        opacity: 1;
+        display: block;
+        height: auto;
+        transition: .5s ease;
+        backface-visibility: hidden;
+        height: 100%;
+        width: auto;
+        margin-left: auto;
+        margin-right: auto
+    }
+
+.large_card__content {
+    transition: .5s ease;
+    opacity: 1;
+    position: absolute;
+    bottom:0%;
+    left: 0;
+    right:0;
+    text-align: center;
+}
+
+.large_card__title {
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: .3em;
+    color: black;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    line-height: 1;
+}
+.large_card__title__title {
+    margin-bottom:1rem;
+}
+.large_card__title__title h1 {
+    font-weight: 500;
+}

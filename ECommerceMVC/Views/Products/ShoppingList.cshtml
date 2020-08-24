@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "ShoppingList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Shared/ProductCard2.css" />
+}
+
+<div class="product_container" style="display:flex;flex-wrap:wrap;justify-content:center;margin:10px auto 0;">
+    @foreach (ECommerceMVC.Models.Products.Product product in Model)
+    {
+        <partial name="_ProductsCards2" model="product" />
+    }
+</div>
+

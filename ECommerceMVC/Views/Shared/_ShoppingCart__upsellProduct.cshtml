@@ -1,0 +1,28 @@
+﻿@model ECommerceMVC.Models.Products.Product
+
+<div class="cart__upsell-container">
+    <div class="cart__item cart__item-upsell">
+        <div class="cart__item-image">
+            @if (Model.Product_Images.Count == 0)
+            {
+                <img src="~/ImagesDefault/NoImage.png" />
+            }
+            else
+            {
+                <img src="~/images/@(Model.Product_Images.First().ImageName)" alt="@Model.Product_Images.First().Title" />
+            }
+        </div>
+        <div class="cart__item-info">
+
+            <div class="cart__item-header">
+                <div class="cart__item-title">
+                    <div>Add a wonderful whale !</div>
+                    <span>Only  <span class="money">€ @Model.Price EUR</span></span>
+                </div>
+            </div>
+            <div class="cart__item-cta">
+                <button type="button" class="product__add-to-cart button button--black cart__upsell-btn" value="@Url.Action("Ajax_Add", "Cart", Model)">Add</button>
+            </div>
+        </div>
+    </div>
+</div>

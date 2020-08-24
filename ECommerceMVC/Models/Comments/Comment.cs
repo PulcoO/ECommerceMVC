@@ -20,9 +20,9 @@ namespace ECommerceMVC.Models.Comments
         public string Content { get; set; }
         public DateTime Date { get; set; }
         
-        private Client Client { get; set; }
+        public virtual Client Client { get; set; }
         
-        private Product Product { get; set; }
+        public virtual Product Product { get; set; }
         [Required]
         public string ClientId { get; set; }
         [Required]

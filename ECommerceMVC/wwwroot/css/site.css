@@ -1,5 +1,4 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
+﻿@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
 html {
     height: 100%;
     box-sizing: border-box;
@@ -11,6 +10,10 @@ html {
     box-sizing: inherit;
 }
 
+a {
+    color: #0366d6;
+}
+
 body {
     position: relative;
     margin: 0;
@@ -20,38 +23,27 @@ body {
 }
 .container {
     width: 100%;
-    max-width: 90%;
+    max-width:90% !important;
+    padding-left:0!important;
+    padding-right:0!important;
 }
 
 .container_render {
     margin: 0 auto;
-    padding-top: 64px;
-    max-width: 90%;
-    width: 90%;
-}
-/**
- * Footer Styles
- */
-
-.footer {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 1rem;
-    background-color: #efefef;
-    text-align: center;
+    margin-bottom:700px;
+    max-width: 100%;
+    padding-top:0;
 }
 
-a.navbar-brand {
+a .navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
 }
-/* Provide sufficient contrast against white background */
-a {
-    color: #0366d6;
+.navbar-brand-image{
+    width:50px;
 }
+/* Provide sufficient contrast against white background */
 
 .btn-primary {
   color: #fff;
@@ -60,33 +52,57 @@ a {
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+
 }
-
-/* Sticky footer styles
--------------------------------------------------- */
-
-
-/*.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}*/
-
-/*.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}*/
 
 button.accept-policy {
   font-size: 1rem;
   line-height: inherit;
 }
+footer a {
+    color: #f8f9fa !important
+}
+.first-navbar {
+    background-color: #000;
+    padding-bottom:10px;
+    padding-top:10px;
+}
+.second-navbar{
+    padding-top:15px;
+    padding-bottom:15px;
+}
+.nav-item {
+    transition: .5s ease;
+    font-size: 17px;
+    position: relative;
+    padding-right: 5px;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+}
+.nav-item a {
+    font-weight: 500;
+}
+    .nav-item:hover > a {
+        text-decoration: underline;
+        transition: .5s ease;
+    }
 
-/* Sticky footer styles
--------------------------------------------------- */
-
-
+.nav-item::after {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 15px;
+    width: 1px;
+    right: 0;
+    top: 50%;
+    z-index:9000;
+    transform: translateY(-50%);
+    background-image: url(./icon-dots.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 

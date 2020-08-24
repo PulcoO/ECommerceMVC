@@ -31,14 +31,20 @@ namespace ECommerceMVC
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
+            services.AddDbContextPool<ApplicationDbContext>(options =>
+                options.UseLazyLoadingProxies().UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             //identity
             services.AddDefaultIdentity<Client>(options => 
             {
                 options.SignIn.RequireConfirmedAccount = true;
+
+                options.Password.RequireDigit = true;
+                options.Password.RequiredLength = 7;
+
+                options.User.RequireUniqueEmail = true;
             })
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             //authentifications
             services.AddAuthentication("Identity.Application")

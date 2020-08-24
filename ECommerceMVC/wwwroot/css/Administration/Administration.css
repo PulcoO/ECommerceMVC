@@ -1,0 +1,7 @@
+﻿.administrationInput, .administrationTextarea, .AdministrationSelect {
+    -webkit-appearance: auto !important;
+    -moz-appearance: auto !important;
+    appearance: auto !important;
+    border: none;
+    border-radius: 0
+}

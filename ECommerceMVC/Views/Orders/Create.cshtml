@@ -13,104 +13,86 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Date" class="control-label"></label>
-                <input asp-for="Date" class="form-control" />
-                <span asp-validation-for="Date" class="text-danger"></span>
+            @*<div class="form-group">
+            <label asp-for="Date" class="control-label"></label>
+            <input asp-for="Date" class="form-control" />
+            <span asp-validation-for="Date" class="text-danger"></span>
+        </div>*@
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="AdressDeliveryStreetName" class="control-label"></label>
+                    <input asp-for="AdressDeliveryStreetName" class="form-control" />
+                    <span asp-validation-for="AdressDeliveryStreetName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AdressDeliveryPostalCode" class="control-label"></label>
+                    <input asp-for="AdressDeliveryPostalCode" class="form-control" />
+                    <span asp-validation-for="AdressDeliveryPostalCode" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AdressDeliveryCountry" class="control-label"></label>
+                    <input asp-for="AdressDeliveryCountry" class="form-control" />
+                    <span asp-validation-for="AdressDeliveryCountry" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AdressDeliveryCity" class="control-label"></label>
+                    <input asp-for="AdressDeliveryCity" class="form-control" />
+                    <span asp-validation-for="AdressDeliveryCity" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AdressDeliveryOption_1" class="control-label"></label>
+                    <input asp-for="AdressDeliveryOption_1" class="form-control" />
+                    <span asp-validation-for="AdressDeliveryOption_1" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AdressDeliveryOption_2" class="control-label"></label>
+                    <input asp-for="AdressDeliveryOption_2" class="form-control" />
+                    <span asp-validation-for="AdressDeliveryOption_2" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="AdressDeliveryStreetName" class="control-label"></label>
-                <input asp-for="AdressDeliveryStreetName" class="form-control" />
-                <span asp-validation-for="AdressDeliveryStreetName" class="text-danger"></span>
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="AdressFacturationStreetName" class="control-label"></label>
+                    <input asp-for="AdressFacturationStreetName" class="form-control" />
+                    <span asp-validation-for="AdressFacturationStreetName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AdressFacturationPostalCode" class="control-label"></label>
+                    <input asp-for="AdressFacturationPostalCode" class="form-control" />
+                    <span asp-validation-for="AdressFacturationPostalCode" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AdressFacturationCountry" class="control-label"></label>
+                    <input asp-for="AdressFacturationCountry" class="form-control" />
+                    <span asp-validation-for="AdressFacturationCountry" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AdressFacturationCity" class="control-label"></label>
+                    <input asp-for="AdressFacturationCity" class="form-control" />
+                    <span asp-validation-for="AdressFacturationCity" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AdressFacturationOption_1" class="control-label"></label>
+                    <input asp-for="AdressFacturationOption_1" class="form-control" />
+                    <span asp-validation-for="AdressFacturationOption_1" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AdressFacturationOption_2" class="control-label"></label>
+                    <input asp-for="AdressFacturationOption_2" class="form-control" />
+                    <span asp-validation-for="AdressFacturationOption_2" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="AdressDeliveryPostalCode" class="control-label"></label>
-                <input asp-for="AdressDeliveryPostalCode" class="form-control" />
-                <span asp-validation-for="AdressDeliveryPostalCode" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AdressDeliveryCountry" class="control-label"></label>
-                <input asp-for="AdressDeliveryCountry" class="form-control" />
-                <span asp-validation-for="AdressDeliveryCountry" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AdressDeliveryCity" class="control-label"></label>
-                <input asp-for="AdressDeliveryCity" class="form-control" />
-                <span asp-validation-for="AdressDeliveryCity" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AdressDeliveryOption_1" class="control-label"></label>
-                <input asp-for="AdressDeliveryOption_1" class="form-control" />
-                <span asp-validation-for="AdressDeliveryOption_1" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AdressDeliveryOption_2" class="control-label"></label>
-                <input asp-for="AdressDeliveryOption_2" class="form-control" />
-                <span asp-validation-for="AdressDeliveryOption_2" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AdressFacturationStreetName" class="control-label"></label>
-                <input asp-for="AdressFacturationStreetName" class="form-control" />
-                <span asp-validation-for="AdressFacturationStreetName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AdressFacturationPostalCode" class="control-label"></label>
-                <input asp-for="AdressFacturationPostalCode" class="form-control" />
-                <span asp-validation-for="AdressFacturationPostalCode" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AdressFacturationCountry" class="control-label"></label>
-                <input asp-for="AdressFacturationCountry" class="form-control" />
-                <span asp-validation-for="AdressFacturationCountry" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AdressFacturationCity" class="control-label"></label>
-                <input asp-for="AdressFacturationCity" class="form-control" />
-                <span asp-validation-for="AdressFacturationCity" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AdressFacturationOption_1" class="control-label"></label>
-                <input asp-for="AdressFacturationOption_1" class="form-control" />
-                <span asp-validation-for="AdressFacturationOption_1" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AdressFacturationOption_2" class="control-label"></label>
-                <input asp-for="AdressFacturationOption_2" class="form-control" />
-                <span asp-validation-for="AdressFacturationOption_2" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Weight" class="control-label"></label>
-                <input asp-for="Weight" class="form-control" />
-                <span asp-validation-for="Weight" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DeliveryCost" class="control-label"></label>
-                <input asp-for="DeliveryCost" class="form-control" />
-                <span asp-validation-for="DeliveryCost" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Total" class="control-label"></label>
-                <input asp-for="Total" class="form-control" />
-                <span asp-validation-for="Total" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="State" class="control-label"></label>
-                <input asp-for="State" class="form-control" />
-                <span asp-validation-for="State" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ClientId" class="control-label"></label>
-                <select asp-for="ClientId" class ="form-control" asp-items="ViewBag.ClientId"></select>
-            </div>
+            <input type="hidden" asp-for="Weight" class="form-control" />
+            <input type="hidden" value="In Order" asp-for="State" class="form-control" />
+            <input type="hidden" value="@ViewBag.CurrentUser" asp-for="ClientId" class="form-control" asp-items="ViewBag.CurrentUser" />
+            <input type="hidden" asp-for="DeliveryCost" class="form-control" />
+            <input type="hidden" asp-for="Total" class="form-control" />
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

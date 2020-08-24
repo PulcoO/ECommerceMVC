@@ -1,0 +1,10 @@
+﻿.container {
+    width: 100%;
+    max-width: 1500px !important;
+}
+
+.first-navbar {
+    background-color: #000;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}

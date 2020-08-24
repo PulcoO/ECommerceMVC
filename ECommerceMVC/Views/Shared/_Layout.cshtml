@@ -5,20 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ECommerceMVC</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/ShoppingCartMenu.css" />
+    <link rel="stylesheet" href="~/css/Footer.css" />
+    <link rel="stylesheet" href="~/css/Bottom_page.css" />
+    <link rel="stylesheet" href="~/css/Administration/Administration.css" />
+    <link rel="stylesheet" href="~/css/Normalisation.css" />
     @RenderSection("Styles", false)
+    @RenderSection("Administration", false)
+    @RenderSection("Product", false)
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark box-shadow mb-3">
+        <nav class="first-navbar navbar-expand-sm navbar-toggleable-sm">
             <div class="container">
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse text-light">
                     <partial name="_LoginPartial" />
                 </div>
-                
-            </div> 
+            </div>
         </nav>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white box-shadow mb-3">
+        <nav class="second-navbar navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
                     <img class="navbar-brand-image" src="~/ImagesDefault/logo100px.png" alt="Alternate Text" />
@@ -29,30 +36,30 @@
                 </button>
 
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Manufacturers" asp-action="Create">Manufacturer</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Create">Product</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Manage
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" asp-controller="Manufacturers"
-                                   asp-action="">Manufacturer</a>
-                                <a class="dropdown-item" asp-controller="Products"
-                                   asp-action="">Products</a>
-                            </div>
+                            <a class="nav-link text-dark cart-icon" href="#"><i class="fas fa-shopping-cart"></i></a>
                         </li>
                     </ul>
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#">Brand</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Products" asp-action="ShoppingList">Enfant</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Products" asp-action="ShoppingList">Design</a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Products" asp-action="ShoppingList">Animaux</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Products" asp-action="ShoppingList">Hot</a>
+                        </li>
+                    </ul>
+
 
                 </div>
             </div>
@@ -63,29 +70,320 @@
             @RenderBody()
         </main>
     </div>
-    <div class="footer">
-        <div class="container_perso">
-            <div class="d-flex flex-column justify-content-center">
-                <div class="title">
-                    <h4 class="text-center">WHY SHOP WITH US ?</h4>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <div class="d-flex flex-column-reverse justify-content-center">
-                        <p>SUPPORT +50 ARTISANS WORDWIDE</p>
-                        <svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="#2a2e3b" stroke-linecap="round" stroke-linejoin="round" transform="translate(1 2)"><path d="m7.5.5c1.65685425 0 3 1.34314575 3 3v1c0 1.65685425-1.34314575 3-3 3s-3-1.34314575-3-3v-1c0-1.65685425 1.34314575-3 3-3zm7 14c0-.2427251 0-.4854502 0-.7281753 0-3.1864098-3.6862915-5.2718247-7-5.2718247s-7 2.0854149-7 5.2718247v.7281753c0 .5522847.44771525 1 1 1h12c.5522847 0 1-.4477153 1-1z" /><path d="m11.5199327.67783074c1.1547685.41741154 1.9800673 1.52341097 1.9800673 2.82216926v1c0 1.29707884-.8231657 2.40189702-1.9755891 2.82054652.6579909-.79913412.9865095-1.90625342.9855555-3.32135789s-.3309652-2.52222377-.9900337-3.32135789zm4.9800673 14.82216926h1c.5522847 0 1-.4477153 1-1 0-.2427251 0-.4854502 0-.7281753 0-2.1698712-1.7094418-3.82917861-3.8465775-4.66705336 0 0 2.8465775 2.39522866 1.8465775 6.39522866z" fill="#2a2e3b" /></g></svg>
+    <div class="overlay" data-overlay="" aria-hidden="true" tabindex="-1"></div>
+    <section class="cart" id="cartSection">
+    </section>
+    <section class="bottom_page">
+    </section>
+    <footer class="myFooter">
+        <section class="footer container">
 
-                    </div>
+            <ul class="footer__menu">
+
+                <li>
+                    <button type="button" class="footer__title footer__dropdown-btn" data-dropdown-btn="footer-menu">
+                        Shop <svg class="" height="9" viewBox="0 0 14 9" width="14" xmlns="http://www.w3.org/2000/svg" role="presentation">
+                            <title>Down Arrow Icon</title>
+                            <path fill="#fff" d="m164.962182 20.8901989c.170127.156.402933.2381052.626785.2381052s.456659-.0821052.626786-.2381052l6.652883-6.1004211c.170127-.156.259668-.3612631.259668-.5747368s-.089541-.4187369-.259668-.5747369l-6.652883-6.10042101c-.349209-.32021053-.904362-.32021053-1.253571 0s-.349209.82926316 0 1.14947368l6.026097 5.52568423-6.026097 5.5256842c-.340255.3202105-.340255.8374737 0 1.1494737z" transform="matrix(0 1 -1 0 21.128304 -164.700274)"></path>
+                        </svg>
+                    </button>
+
+                    <ul class="footer__dropdown">
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Charity</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Tirelire Enfant</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Tirelire Adulte</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Tirelire Animaux</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Tirelire Electronique</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Tirelire Originale</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Tirelire Décorative</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Tirelire Résine</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Soldes</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Personnalisé</a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+                <li>
+                    <button type="button" class="footer__title footer__dropdown-btn" data-dropdown-btn="footer-menu">
+                        Brand <svg class="" height="9" viewBox="0 0 14 9" width="14" xmlns="http://www.w3.org/2000/svg" role="presentation">
+                            <title>Down Arrow Icon</title>
+                            <path fill="#fff" d="m164.962182 20.8901989c.170127.156.402933.2381052.626785.2381052s.456659-.0821052.626786-.2381052l6.652883-6.1004211c.170127-.156.259668-.3612631.259668-.5747368s-.089541-.4187369-.259668-.5747369l-6.652883-6.10042101c-.349209-.32021053-.904362-.32021053-1.253571 0s-.349209.82926316 0 1.14947368l6.026097 5.52568423-6.026097 5.5256842c-.340255.3202105-.340255.8374737 0 1.1494737z" transform="matrix(0 1 -1 0 21.128304 -164.700274)"></path>
+                        </svg>
+                    </button>
+
+                    <ul class="footer__dropdown">
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Our Story</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Brand Ambassador</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Affiliate Program</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Wholesale</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Submit an Idea</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">In the Press</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Blog</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Videos</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Student Discount</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Earn Rewards</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Careers</a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+                <li>
+                    <button type="button" class="footer__title footer__dropdown-btn" data-dropdown-btn="footer-menu">
+                        Help <svg class="" height="9" viewBox="0 0 14 9" width="14" xmlns="http://www.w3.org/2000/svg" role="presentation">
+                            <title>Down Arrow Icon</title>
+                            <path fill="#fff" d="m164.962182 20.8901989c.170127.156.402933.2381052.626785.2381052s.456659-.0821052.626786-.2381052l6.652883-6.1004211c.170127-.156.259668-.3612631.259668-.5747368s-.089541-.4187369-.259668-.5747369l-6.652883-6.10042101c-.349209-.32021053-.904362-.32021053-1.253571 0s-.349209.82926316 0 1.14947368l6.026097 5.52568423-6.026097 5.5256842c-.340255.3202105-.340255.8374737 0 1.1494737z" transform="matrix(0 1 -1 0 21.128304 -164.700274)"></path>
+                        </svg>
+                    </button>
+
+                    <ul class="footer__dropdown">
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Help &amp; FAQ</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Accessibility</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Afterpay</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Track My Order</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Ring Exchanges</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Ring Care</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Store Locator</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Media Inquiries</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Partnership Inquiry</a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+                <li>
+                    <button type="button" class="footer__title footer__dropdown-btn" data-dropdown-btn="footer-menu">
+                        Legal <svg class="" height="9" viewBox="0 0 14 9" width="14" xmlns="http://www.w3.org/2000/svg" role="presentation">
+                            <title>Down Arrow Icon</title>
+                            <path fill="#fff" d="m164.962182 20.8901989c.170127.156.402933.2381052.626785.2381052s.456659-.0821052.626786-.2381052l6.652883-6.1004211c.170127-.156.259668-.3612631.259668-.5747368s-.089541-.4187369-.259668-.5747369l-6.652883-6.10042101c-.349209-.32021053-.904362-.32021053-1.253571 0s-.349209.82926316 0 1.14947368l6.026097 5.52568423-6.026097 5.5256842c-.340255.3202105-.340255.8374737 0 1.1494737z" transform="matrix(0 1 -1 0 21.128304 -164.700274)"></path>
+                        </svg>
+                    </button>
+
+                    <ul class="footer__dropdown">
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Privacy Policy</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Terms of Use</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Disclaimer</a>
+                        </li>
+
+                        <li>
+                            <a class="footer__link hover-link" href="#">Legal</a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+            </ul>
+
+            <div class="footer__aside">
+                <div class="footer__title">Follow Our Journey</div>
+
+                <ul class="footer__social">
+                    <li class="">
+                        <a href="#" class="social-link" title="Pura Vida Facebook" aria-label="Pura Vida Facebook" target="_blank" aria-describedby="audioeye_new_window_message">
+                            <svg data-name="Layer 7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 899.93 913.17" role="presentation">
+                                <title>Facebook Logo</title>
+                                <path fill="#fff" d="M721.37,107.76C530.84-9.68,296.11,37.45,152.89,218.06,1.3,409.22,19.55,673.63,192.56,832.36c205.79,188.8,505,159.67,666.65-68.85C1026.3,527.25,952.44,250.2,721.37,107.76ZM639.93,435.62c-2.06,24.49,0,49.11-2.57,73.59-1.12,10.62-1.82,12.47-12.65,12.86-17.41.61-34.86.37-52.29.38-13,0-26,0-39-.36-4.8-.15-6.36,1.36-6.66,6.13-2.32,35.86-1.28,71.68,2,107.39,2,21.92-.59,43.68-.8,65.51-.22,22.35.45,44.68.18,67-.13,11.46-2.56,13.92-13.95,13.84-26-.18-52-.62-78-.82-3.91,0-7.81.74-11.72,1-5.36.35-7.5-2.47-7.47-7.61.41-62.36.28-124.74,3.17-187,.92-19.89.89-39.77,1.47-59.65.05-1.91,0-3.83,0-6.88-28.55,3.95-55.88-2.48-83.38-1-8.11.45-10.23-1.94-10.55-10.31q-1.32-35.31-2.37-70.63c-.31-11.21,3.28-15.4,14.75-15.45,14.47-.06,28.94.85,43.41.08,11.21-.6,22.43-1.39,34.14-2.12-.76-17.58-1.06-34.68-.62-51.79C418.26,321,451.15,265.05,504.62,246c17.83-6.36,36.85-8.05,55.72-9.64,21.84-1.84,43.67-1.25,65.52-.47,8.66.31,12.24,3.43,12.14,12.15-.16,13.75-.63,27.51-1.56,41.22-.85,12.48-2.56,24.86-1.82,37.47.58,9.88-1.62,11.09-11.26,11.7-19.93,1.25-39.71-1.89-59.59-1.52-4.66.09-9.27.07-13.91,1.07-12.7,2.73-18.85,8-19.89,21-1.45,18.08-3.81,36.12-3.57,54.35.08,6,2.43,7.55,7.81,7.46,12.27-.21,24.56.17,36.83-.16,18.68-.52,37.31.5,55.94,1.27C638.34,422.38,640.84,424.74,639.93,435.62Z" transform="translate(-50.03 -43.42)"></path>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="social-link" title="Pura Vida Twitter" aria-label="Pura Vida Twitter" target="_blank" aria-describedby="audioeye_new_window_message">
+                            <svg data-name="Layer 4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 899.93 913.17" role="presentation">
+                                <title>Twitter Logo</title>
+                                <path fill="#fff" d="M721.37,107.76C530.84-9.68,296.11,37.45,152.89,218.06,1.3,409.22,19.55,673.63,192.56,832.36c205.79,188.8,505,159.67,666.65-68.85C1026.3,527.25,952.44,250.2,721.37,107.76Zm55.45,254.1a54.06,54.06,0,0,1-4.82,7.53c-15.68,20.5-29.52,34.15-44.93,44.28-3.69,2.42-5.13,5.44-4.85,10.1,5.79,87.37-40.4,186.38-114.94,246.4-79.21,63.75-187.87,85.55-276.81,55.44-21.22-7.17-38.65-13.84-54.85-21-1.73-.77-3.48-1.51-5.21-2.25-7.15-3-13.89-5.88-19.9-10.31-2.31-1.69-2.93-2.7-2.78-4.52.18-2.86.39-2.89,2.43-3.24a13.79,13.79,0,0,1,2.22-.14h1.16l11.51.14c5,.06,10,.14,15,.18,13.43-.1,26.62-2.71,39.33-5.43l3-.65a270.06,270.06,0,0,0,64.81-23.15,56.37,56.37,0,0,0,13.71-8.93l3.83-3.53-5.13-1c-8.7-1.69-15.48-3.1-22.23-4.9A123,123,0,0,1,341.51,621c-6.76-4.41-12.42-10.4-17.9-16.19l-2-2.1a132.05,132.05,0,0,1-12.28-15.13,45,45,0,0,1-5.42-10,11.19,11.19,0,0,1-.84-4.57c.06-2,.43-2.51.53-2.62s.64-.46,2.43-.31c2,.11,3.9.35,5.85.59a56.42,56.42,0,0,0,9.44.67l2.82-.07a83.66,83.66,0,0,0,14.44-1.23,12.19,12.19,0,0,0,4.66-1.63l1.24-.8,0-1.48c0-1.17-.54-3.2-3.61-3.78-18.44-5.82-34.71-17.29-49.73-35-12.35-14.55-21.43-32-27.06-51.81-1.48-5.34-1.73-9.68-.78-13.65.78-3.25,1.51-3.69,1.59-3.73s.74-.19,3.21.84c8.47,3.56,17.41,5.72,26,7.81,3.44.84,6.91,1.67,10.49,2.64a7.84,7.84,0,0,0,6.78-.71l2.66-1.72-3.53-3.73c-1-1.08-2-2.14-3-3.16l-1.64-1.6c-6.86-6.72-14-13.65-19.53-21.55-9.79-13.82-15.54-27.8-17.58-42.76a133.76,133.76,0,0,1-1.28-26.06,65.72,65.72,0,0,1,5.11-22.9c1.1-2.55,2.17-5.11,3.24-7.67,1.34-3.2,2.66-6.41,4.06-9.58,1-2.2,1.52-2.43,1.58-2.45s.62-.19,2.81,1.07a21.76,21.76,0,0,1,5.15,4.66,367.66,367.66,0,0,0,45,43.48c20,16.19,42,28,60.86,37.32,20.62,10.22,43,15.62,64.55,20.84l1.89.45c9.34,2.26,19,4.59,28.85,5.61a119.13,119.13,0,0,0,12.22.39H509l-1.18-6.8c-.59-3.48-1.17-6.77-1.71-10.05-1.54-9.52,0-18.64,2.09-29.59a142.64,142.64,0,0,1,8.28-28.86c6.34-15.09,17.28-28.22,33.44-40.15,16.46-12.16,34.59-19.26,53.87-21.1a113.21,113.21,0,0,1,58.68,9.64A90.3,90.3,0,0,1,693.4,336c3.57,4,4.84,4.36,9.87,2.35q17.87-7.11,35.66-14.32l17.29-7a38.14,38.14,0,0,1,4.41-1.62,3.88,3.88,0,0,1,1.48-.18,2.26,2.26,0,0,1,0,1.35,47.83,47.83,0,0,1-4,10.59c-7.91,15-17.51,26.62-29.36,35.4-.74.56-1.44,1.16-2.59,2.14a3.69,3.69,0,0,0-1,1.89l-1.4,3.85,4.08-.33c6-.48,11.55-2.06,17.18-3.76,9.48-2.87,18.89-5.9,28.66-9,2.59-.82,3.6-1,4.24-.32C778.66,358,778.22,359.22,776.82,361.86Z" transform="translate(-50.03 -43.42)"></path>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="social-link" title="Pura Vida Instagram" aria-label="Pura Vida Instagram" target="_blank" aria-describedby="audioeye_new_window_message">
+                            <svg data-name="Layer 6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 913.24" role="presentation">
+                                <title>Instagram Logo</title>
+                                <g>
+                                    <path fill="#fff" d="M522.36,404.07c-2.33-.92-5.12-.76-7.7-.94-20.33-1.37-39.08,4.4-57.29,12.67-18.7,8.5-33,21.81-42,40.19-7.76,15.82-13.55,32.34-12.61,50.9a53.7,53.7,0,0,0,7,32.93c17.32,29.38,41.72,48.95,75.85,55.91,14.5,3,28.08,1.18,41.76-3.12,20.19-6.35,34.6-20.21,46.67-36.73,22.3-30.53,28.9-62.35,11.39-98.37C571.9,429.74,549.41,414.7,522.36,404.07Z" transform="translate(-50 -43.38)"></path>
+                                    <path fill="#fff" d="M721.38,107.73C530.84-9.72,296.09,37.42,152.87,218,1.27,409.21,19.51,673.65,192.54,832.39c205.8,188.81,505.07,159.67,666.7-68.86C1026.34,527.25,952.48,250.18,721.38,107.73Zm1,581.4c-6.5,16.77-17.22,27.28-34.17,32.4-14.56,4.41-29.48,3.8-44.36,4.45-39.11,1.7-77.32,1.82-116.42,3.58-21.24,1-42.49,1.74-62.48,2.55-33,0-64.69.17-96.4-.08-15.65-.12-31.32-.72-46.94-1.7a67.46,67.46,0,0,1-29.7-9.12c-11.43-6.62-17.41-17.05-19.65-29.82-3.41-19.54-5.47-39.22-3.77-59,2-23.85,1.18-47.72,1.13-71.58-.08-43.27-1.34-86.54-1.28-129.81,0-29.32-2.06-58.77,3.43-87.93,2.29-12.12,5-24.15,9.43-35.63,6-15.84,18-24.44,34.77-28,39.76-8.33,80.06-7.3,120.27-8.61,47.36-1.55,201-6.15,230,.48,9.11,2.09,18.23,4.3,26.43,8.84,45.56,25.23,30,87.58,30.2,130.5.27,49.59,2.12,105.16,5.53,154.63C731.17,605.73,737.49,650.12,722.4,689.13Z" transform="translate(-50 -43.38)"></path>
+                                    <path fill="#fff" d="M666.12,318.24c-16.64-.54-33.31-.49-50-.32-7.44.07-8.5,1.6-8.49,9.62a243.08,243.08,0,0,1-1.46,28.79c-1,8.05-.44,16.27-.75,24.41-.2,5.27,1.87,8.52,7.29,9.22,1.46.19,2.94.31,4.42.4,18.16,1,35.89-3.56,53.93-4.2.29,0,.57-.43,1.88-1.49-1-16.95,2.27-34.4,5.15-51.81C680,321.81,676.37,318.56,666.12,318.24Z" transform="translate(-50 -43.38)"></path>
+                                </g>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="social-link" title="Pura Vida Youtube" aria-label="Pura Vida Youtube" target="_blank" aria-describedby="audioeye_new_window_message">
+                            <svg data-name="Layer 5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 899.93 913.17" role="presentation">
+                                <title>YouTube Logo</title>
+                                <g>
+                                    <path fill="#fff" d="M539.92,479.87q-40.42-24.3-80.73-48.76a32,32,0,0,0-3.92-2.18c-3-1.24-4.12-.58-4.36,2.62a81,81,0,0,0-.4,10.66c1,15.93.18,31.88.73,47.8a360.15,360.15,0,0,1-1.31,49.38c-.72,7.08-1.46,14.16-1.91,21.26-.35,5.44-1,10.94.28,16.94,40.21-28.74,82.71-52.47,124.84-77.12-2.21-2.85-4.86-4.25-7.43-5.73C557.12,489.77,548.42,485,539.92,479.87Z" transform="translate(-50.03 -43.42)"></path>
+                                    <path fill="#fff" d="M721.37,107.76C530.84-9.68,296.11,37.45,152.89,218.06,1.3,409.22,19.55,673.63,192.56,832.36c205.79,188.8,505,159.67,666.65-68.85C1026.3,527.25,952.44,250.2,721.37,107.76ZM705.92,663.34c-21.46,9-45.17,10.69-68.39,12q-138.22,7.9-276.77,2.23c-49.75-2.05-106.68-11-113.16-71.33-1.09-10.21-3.25-20.31-4.93-30.46a18.19,18.19,0,0,1-.43-3.34c.45-20.83-2.25-41.58-1.49-62.4.88-24.16,2.12-48.3,3.11-72.45q.4-10.11.31-20.25a107.17,107.17,0,0,1,8.48-42.69c7-16.78,19.08-29,35.5-36.67,13.35-6.25,27.62-9.33,42.25-10.59,17.35-1.51,34.71-3.08,52.1-4,13.66-.71,27.37-.33,41.05-.66,28.13-.66,56.25.56,84.38.51,12.17,0,24.27.2,36.39-1.21,5.37-.62,10.87-.21,16.3-.2,19.7.06,39.35-1.73,59-1.82,18.36-.07,36.77.48,55,3a137.7,137.7,0,0,1,43.3,13.25c13,6.61,21.77,16.84,26.91,30.37,3.55,9.35,5.09,19.16,6.62,29,1.59,10.17,3.31,20.32,4.08,30.61.49,6.57.39,13.11.4,19.67,0,6.33.25,13.31.61,20.76C759.67,532.61,771.44,636,705.92,663.34Z" transform="translate(-50.03 -43.42)"></path>
+                                </g>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+                <div class="footer__title">Need to get in touch?</div>
+                <div class="footer__contact">
+                    <a href="mailto:info@oominimathoo.com" class="hover-link">mathieu@gmail.com</a>
+                    <a href="tel:0668320471" class="hover-link">0668320471</a>
                 </div>
             </div>
-            <div class="copyright">
-                &copy; 2020 - Happy Rando - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-            </div>
-        </div>
-    </div>
+        </section>
+    </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"></script>
+    @*<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>*@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     @RenderSection("Scripts", required: false)
+    @RenderSection("ScriptsAdministration", required: false)
+    @RenderSection("ScriptsShoppingList", required: false)
+    @RenderSection("ProductDetailsScripts", required: false)
+    <script>
+        $(function () {
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("OnGetPartial", "Cart")",
+                contentType: "html",
+                success: function (html) {
+                    $('#cartSection').html(html);
+                },
+                error: function (msg) {
+                    console.log("error")
+                }
+            });
+        });
+        $(document).ready(function () {
+            $(".product__add-to-cart").click(function (event) {
+                var path = event.target.value;
+                $.ajax({
+                    type: "GET",
+                    url: path,
+                    contentType: "html",
+                    success: function (html) {
+                        $('#cartSection').html(html);
+                    },
+                    error: function (msg) {
+                        console.log("error")
+                    }
+                });
+                $(".cart").addClass("active")
+            });
+        });
+        $(document).ready(function () {
+            $(".cart__").click(function (event) {
+                console.log(event)
+                $(".cart").removeClass("active");
+                $(".overlay").removeClass("active");
+            });
+            $(".icon-close").click(function (event) {
+                console.log(event)
+                $(".cart").removeClass("active");
+                $(".overlay").removeClass("active");
+            });
+        });
+        $(document).ready(function () {
+            $("#cartSection").load('<%= Url.Action("OnGetPartial", "Cart") %>');
+        });
+    </script>
 </body>
 </html>

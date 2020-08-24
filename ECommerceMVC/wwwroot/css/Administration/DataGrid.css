@@ -1,0 +1,12 @@
+﻿#wrapper {
+    width: 100%!important;
+}
+#content-wrapper{
+    background-color:white!important;
+}
+#content{
+    margin-top:1rem;
+}
+.card-header{
+    background-color:floralwhite;
+}

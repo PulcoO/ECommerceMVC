@@ -60,7 +60,7 @@ namespace ECommerceMVC.Controllers
         // GET: Manufacturers/Create
         public IActionResult Create()
         {
-            return View();
+            return PartialView("_Create");
         }
 
         // POST: Manufacturers/Create

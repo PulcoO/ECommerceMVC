@@ -16,9 +16,9 @@ namespace ECommerceMVC.Models.Clients
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
-        public ICollection<Adress> Adresses { get; set; }
-        public ICollection<Comment> Comments { get; set; }
-        public ICollection<Order> Order { get; set; }
+        public virtual ICollection<Adress> Adresses { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Order> Order { get; set; }
 
     }
 }

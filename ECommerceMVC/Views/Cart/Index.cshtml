@@ -4,90 +4,86 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-    <section class="cart">
-        <div class="container mb-4">
-            <div class="row">
-                <div class="col-12">
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead>
+
+<section class="cartArray">
+    <div class="container mb-4">
+        <div class="row">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col"> </th>
+                                <th scope="col">Product</th>
+                                <th scope="col">Available</th>
+                                <th scope="col" class="text-center">Quantity</th>
+                                <th scope="col" class="text-right">Price</th>
+                                <th> </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
                                 <tr>
-                                    <th scope="col"> </th>
-                                    <th scope="col">Product</th>
-                                    <th scope="col">Available</th>
-                                    <th scope="col" class="text-center">Quantity</th>
-                                    <th scope="col" class="text-right">Price</th>
-                                    <th> </th>
+                                    <td>
+                                        @if (item.Product.Product_Images == null | item.Product.Product_Images.Count == 0)
+                                        {
+                                            <img src="~/ImagesDefault/NoImage.png" alt="Has no image" />
+                                        }
+                                        else
+                                        {
+                                            //besoin de rajouter le fetch de la data dans le controller cart !
+                                            <img src="~/images/@(item.Product.Product_Images.First().ImageName)" alt="@item.Product.Product_Images.First().Title" />
+                                        }
+                                    </td>
+                                    <td>@item.Product.Name</td>
+                                    <td>In stock</td>
+                                    <td><input class="form-control" type="text" value="@item.Quantity" /></td>
+                                    <td class="text-right">implanter js</td>
+                                    <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model)
-                                {
-                                    <tr>
-                                        <td>
-                                            @*@if (item.Product.Product_Images.Count == 0 | item.Product.Product_Images == null)
-                                            {
-                                                <img src="~/ImagesDefault/NoImage.png" alt="Has no image" />
-                                            }
-                                            else
-                                            {
-                                                //besoin de rajouter le fetch de la data dans le controller cart !
-                                                <img src="~/images/@(item.Product.Product_Images.First().ImageName)" alt="@item.Product.Product_Images.First().Title" />
-                                            }*@
-                                        </td>
-                                        <td>@item.Product.Name</td>
-                                        <td>In stock</td>
-                                        <td><input class="form-control" type="text" value="@item.Quantity" /></td>
-                                        <td class="text-right">implanter js</td>
-                                        <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
-                                    </tr>
-                                }
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>Sub-Total</td>
-                                    <td class="text-right">JS</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>Shipping</td>
-                                    <td class="text-right">JS</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td><strong>Total</strong></td>
-                                    <td class="text-right"><strong>JS</strong></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                            }
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>Sub-Total</td>
+                                <td class="text-right">JS</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>Shipping</td>
+                                <td class="text-right">JS</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><strong>Total</strong></td>
+                                <td class="text-right"><strong>JS</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="col mb-2">
-                    <div class="row">
-                        <div class="col-sm-12  col-md-6">
-                            <button class="btn btn-block btn-light">Continue Shopping</button>
-                        </div>
-                        <div class="col-sm-12 col-md-6 text-right">
-                            <button type="button" href=@Url.Action("Create","Orders") class="btn btn-lg btn-block btn-success text-uppercase">Checkout</button>
-                            <a href=@Url.Action("Create","Orders")>SEND</a>
-                        </div>
+            </div>
+            <div class="col mb-2">
+                <div class="row">
+                    <div class="col-sm-12  col-md-6">
+                        <button class="btn btn-block btn-light">Continue Shopping</button>
+                    </div>
+                    <div class="col-sm-12 col-md-6 text-right">
+                        <button type="button" href=@Url.Action("Create","Orders") class="btn btn-lg btn-block btn-success text-uppercase">Checkout</button>
+                        <a href=@Url.Action("Create","Orders")>SEND</a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-
-<section class="cart">
-    
+    </div>
 </section>
 
 

@@ -22,7 +22,7 @@ namespace ECommerceMVC.Models.Clients
         public string Option_1 { get; set; }
         public string Option_2 { get; set; }
         
-        public Client Client { get; set; }
+        public virtual Client Client { get; set; }
         [Required]
         public string ClientId { get; set; }
 

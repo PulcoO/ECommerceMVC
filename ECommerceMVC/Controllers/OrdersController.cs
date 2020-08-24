@@ -11,6 +11,9 @@ using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using ECommerceMVC.Models.Products;
 using ECommerceMVC.Interfaces;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
+using ECommerceMVC.Models.Clients;
 
 namespace ECommerceMVC.Controllers
 {
@@ -18,11 +21,13 @@ namespace ECommerceMVC.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IProductRepository _productRepository;
+        private readonly UserManager<Client> _userManager;
 
-        public OrdersController(ApplicationDbContext context, IProductRepository productRepository)
+        public OrdersController(ApplicationDbContext context, IProductRepository productRepository, UserManager<Client> userManager)
         {
             _context = context;
             _productRepository = productRepository;
+            _userManager = userManager;
         }
 
         // GET: Orders
@@ -54,7 +59,8 @@ namespace ECommerceMVC.Controllers
         // GET: Orders/Create
         public IActionResult Create()
         {
-            ViewData["ClientId"] = new SelectList(_context.Clients, "Id", "Id");
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            ViewBag.CurrentUser = userId;
             return View();
         }
 
@@ -65,6 +71,7 @@ namespace ECommerceMVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,AdressDeliveryStreetName,AdressDeliveryPostalCode,AdressDeliveryCountry,AdressDeliveryCity,AdressDeliveryOption_1,AdressDeliveryOption_2,AdressFacturationStreetName,AdressFacturationPostalCode,AdressFacturationCountry,AdressFacturationCity,AdressFacturationOption_1,AdressFacturationOption_2,ClientId")] Order order)
         {
+            order.Client = await _userManager.FindByIdAsync(order.ClientId);
             order.Date = DateTime.Now;
             if (ModelState.IsValid)
             {

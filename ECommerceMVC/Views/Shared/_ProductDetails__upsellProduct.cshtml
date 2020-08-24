@@ -1,0 +1,26 @@
+﻿@model ECommerceMVC.Models.Products.Product
+
+
+<section class="complete-the-shoppingCart">
+    <div class="complete-shoppingCart__product no-variants">
+        <form method="post" action="/cart/add">
+            <div class="complete-shoppingCart__wrap">
+                @if (Model.Product_Images.Count == 0)
+                {
+                    <img class="complete-shoppingCart__img" src="~/ImagesDefault/NoImage.png" />
+                }
+                else
+                {
+                    <img class="complete-shoppingCart__img" src="~/images/@(Model.Product_Images.First().ImageName)" alt="@Model.Product_Images.First().Title" />
+                }
+                <div class="complete-shoppingCart__product-details">
+                    <a class="complete-shoppingCart__link" href="@Url.Action("DetailsCard","products",Model.Id)">
+                        <div class="complete-shoppingCart__product-title">@Model.Name</div>
+                        <div class="complete-shoppingCart__product-price"><span class="money">€ @Model.Price EUR</span></div>
+                    </a>
+                </div>
+            </div>
+            <button type="button" value="@Url.Action("Ajax_Add", "Cart", Model)" class="product__add-to-cart complete-shoppingCart__cta button button--black">Add</button>
+        </form>
+    </div>
+</section>
