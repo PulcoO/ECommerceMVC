@@ -1,117 +1,114 @@
 ﻿@model List<ECommerceMVC.Models.Orders.ProductCart>
 
-    <div class="cart__header">
-        My Shopping Cart
-        <button type="button" class="cart__close" data-close-cart="" title="Close Cart" aria-label="Close Cart">
-            @*Le svg du button close*@
-            <svg class="icon-close" width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="presentation">
-                <title>Close Icon</title>
-                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                    <g transform="translate(-1172.000000, -64.000000)" fill="#000" fill-rule="nonzero">
-                        <g transform="translate(1172.000000, 64.000000)">
-                            <path d="M9.9010989,8.59340659 L16.7384615,1.75604396 C17.0934066,1.4010989 17.0934066,0.821978022 16.7384615,0.448351648 C16.3835165,0.0747252747 15.8043956,0.0934065934 15.4307692,0.448351648 L8.59340659,7.28571429 L1.75604396,0.448351648 C1.4010989,0.0934065934 0.821978022,0.0934065934 0.448351648,0.448351648 C0.0747252747,0.803296703 0.0934065934,1.38241758 0.448351648,1.75604396 L7.28571429,8.59340659 L0.448351648,15.4307692 C0.0934065934,15.7857143 0.0934065934,16.3648352 0.448351648,16.7384615 C0.635164835,16.9252747 0.859340659,17 1.1021978,17 C1.34505495,17 1.56923077,16.9065934 1.75604396,16.7384615 L8.59340659,9.9010989 L15.4307692,16.7384615 C15.6175824,16.9252747 15.8417582,17 16.0846154,17 C16.3274725,17 16.5516484,16.9065934 16.7384615,16.7384615 C17.0934066,16.3835165 17.0934066,15.8043956 16.7384615,15.4307692 L9.9010989,8.59340659 Z"></path>
-                        </g>
+<div class="cart__header">
+    My Shopping Cart
+    <button type="button" onclick="CloseCart()" class="cart__close" title="Close Cart" aria-label="Close Cart">
+        @*Le svg du button close*@
+        <svg class="icon-close" width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="presentation">
+            <title>Close Icon</title>
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g transform="translate(-1172.000000, -64.000000)" fill="#000" fill-rule="nonzero">
+                    <g transform="translate(1172.000000, 64.000000)">
+                        <path d="M9.9010989,8.59340659 L16.7384615,1.75604396 C17.0934066,1.4010989 17.0934066,0.821978022 16.7384615,0.448351648 C16.3835165,0.0747252747 15.8043956,0.0934065934 15.4307692,0.448351648 L8.59340659,7.28571429 L1.75604396,0.448351648 C1.4010989,0.0934065934 0.821978022,0.0934065934 0.448351648,0.448351648 C0.0747252747,0.803296703 0.0934065934,1.38241758 0.448351648,1.75604396 L7.28571429,8.59340659 L0.448351648,15.4307692 C0.0934065934,15.7857143 0.0934065934,16.3648352 0.448351648,16.7384615 C0.635164835,16.9252747 0.859340659,17 1.1021978,17 C1.34505495,17 1.56923077,16.9065934 1.75604396,16.7384615 L8.59340659,9.9010989 L15.4307692,16.7384615 C15.6175824,16.9252747 15.8417582,17 16.0846154,17 C16.3274725,17 16.5516484,16.9065934 16.7384615,16.7384615 C17.0934066,16.3835165 17.0934066,15.8043956 16.7384615,15.4307692 L9.9010989,8.59340659 Z"></path>
                     </g>
                 </g>
-            </svg>
-        </button>
-    </div>
-    <div class="cart__contents" data-cart-contents="">
-        <div class="cart__shipping ">
-            <div class="cart__shipping-text">
-                @if (Model.Any())
-                {
-                    <span>
-                        Almost there! Add <span class="money">si Produit faire le calcul</span> to unlock free shipping!
-                    </span>
-                }
-                else
-                {
-                    <span>
-                        Almost there! Add <span class="money">€21.85 EUR</span> to unlock free shipping!
-                    </span>
-                }
-            </div>
-            <div class="cart__shipping-progress">
+            </g>
+        </svg>
+    </button>
+</div>
+<div class="cart__contents">
+    <div class="cart__shipping ">
+        <div class="cart__shipping-text">
+            @if (Model.Any())
+            {
                 <span>
-
+                    Almost there! Add <span class="money">€ @ViewBag.FreeShipping</span> EUR to unlock free shipping!
                 </span>
-            </div>
+            }
+            else
+            {
+                <span>
+                    To unlock free shipping, spend <span class="money">€ 100 </span> EUR only !
+                </span>
+            }
         </div>
-        
-        <div class="cart__contents-inner">
-            <div class="cart__items gip-secondary-cart">
-                @if (Model.Any())
+        <div class="cart__shipping-progress">
+            <span onchange="moveOnLoad(this.dataset.free)" onload="moveOnLoad(this.dataset.free)" data-free="@ViewBag.FreeShipping" id="Cart__shipping-progress-bar"></span>
+        </div>
+    </div>
+
+    <div class="cart__contents-inner">
+        <div class="cart__items gip-secondary-cart">
+            @if (Model.Any())
+            {
+                @foreach (var productCart in Model)
                 {
-                    @foreach (var productCart in Model)
-                    {
-                        <div class="cart__item gip-secondary-cart-line-item">
-                            <div class="cart__item-image">
-                                @if (productCart.Product.Product_Images == null | productCart.Product.Product_Images.Count == 0)
-                                {
-                                    <img src="~/ImagesDefault/NoImage.png" />
-                                }
-                                else
-                                {
-                                    <img src="~/images/@(productCart.Product.Product_Images.First().ImageName)" />
-                                }
+                    <div class="cart__item gip-secondary-cart-line-item">
+                        <div class="cart__item-image">
+                            @if (productCart.Product.Product_Images == null | productCart.Product.Product_Images.Count == 0)
+                            {
+                                <img src="~/ImagesDefault/NoImage.png" />
+                            }
+                            else
+                            {
+                                <img src="~/images/@(productCart.Product.Product_Images.First().ImageName)" />
+                            }
+                        </div>
+
+                        <div class="cart__item-info">
+                            <div class="cart__item-header">
+                                <div class="cart__item-title">
+                                    <a href="/products/enamel-wave-charm?variant=32679174668374">
+                                        @productCart.Product.Name
+                                    </a>
+                                    <ul class="cart__item-options" role="presentation">
+                                        <li class="cart__item-option" role="presentation">Color @productCart.Product.PrincipalColor</li>
+                                        <li class="cart__item-option" role="presentation">Autre option : blala</li>
+                                    </ul>
+                                </div>
+                                <div class="cart__item-prices"><div class="cart__item-price gip-secondary-cart-final-line-item-total">@productCart.Product.Price</div></div>
                             </div>
 
-                            <div class="cart__item-info">
-                                <div class="cart__item-header">
-                                    <div class="cart__item-title">
-                                        <a href="/products/enamel-wave-charm?variant=32679174668374">
-                                            @productCart.Product.Name
-                                        </a>
-                                        <ul class="cart__item-options" role="presentation">
-                                            <li class="cart__item-option" role="presentation">Color @productCart.Product.PrincipalColor</li>
-                                            <li class="cart__item-option" role="presentation">Autre option : blala</li>
-                                        </ul>
-                                    </div>
-                                    <div class="cart__item-prices"><div class="cart__item-price gip-secondary-cart-final-line-item-total">@productCart.Product.Price</div></div>
+                            <div class="cart__item-utility">
+                                <div class="cart__item-qty">
+                                    <button class="product__remove-to-cart" onclick="removeToCart(this.dataset.path)"  data-path="@Url.Action("Ajax_Remove", "Cart", productCart.Product)" type="button">−</button>
+                                    <input class="gip-secondary-cart-line-item-qty" type="number" id="Quantity" name="quantity" value="@productCart.Quantity" min="0" readonly="" aria-label="quantity">
+                                    <button class="product__add-to-cart" onclick="addToCart(this.dataset.path)" data-path="@Url.Action("Ajax_Add", "Cart", productCart.Product)" type="button">+</button>
                                 </div>
-
-                                <div class="cart__item-utility">
-                                    <div class="cart__item-qty">
-                                        <button type="button">−</button>
-                                        <input class="gip-secondary-cart-line-item-qty" type="number" id="Quantity" name="quantity" value="@productCart.Quantity" min="0" readonly="" aria-label="quantity">
-                                        <button type="button">+</button>
-                                    </div>
-                                    <button type="button" class="cart__item-remove">Remove</button>
-                                </div>
+                                <button type="button" class="cart__item-remove">Remove</button>
                             </div>
                         </div>
-                    }
-                    <partial name="_ShoppingCart__upsellProduct" model="ViewBag.upsellProduct" />
+                    </div>
                 }
-                else
-                {
+                <partial name="_ShoppingCart__upsellProduct" model="ViewBag.upsellProduct" />
+            }
+            else
+            {
 
-                }
+            }
+        </div>
+
+        <div class="cart__summary">
+            <div class="cart__gift-box-details">
+                <img src="~/ImagesExemple/GiftExemple.png" alt="Gift Box">
             </div>
-
-            <div class="cart__summary">
-                <div class="cart__gift-box-details">
-                    <img src="~/ImagesExemple/GiftExemple.png" alt="Gift Box">
-                </div>
-                <div class="cart__gift-box">
-                    <button type="button">Add gift box for&nbsp;<span class="money">€7.00 EUR</span></button>
-                    <button type="button" title="View Gift Box Details">
-                        <svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="presentation">
-                            <title>Help Icon</title>
-                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                <g fill="#000" fill-rule="nonzero">
-                                    <path d="M15,30 C6.71572875,30 -2.55351296e-15,23.2842712 -3.55271368e-15,15 C-4.5519144e-15,6.71572875 6.71572875,-2.10942375e-15 15,-3.55271368e-15 C23.2842712,-4.99600361e-15 30,6.71572875 30,15 C30,23.2842712 23.2842712,30 15,30 Z M15,2 C7.82029825,2 2,7.82029825 2,15 C2,22.1797017 7.82029825,28 15,28 C22.1797017,28 28,22.1797017 28,15 C28,11.5521856 26.6303611,8.24558476 24.1923882,5.80761184 C21.7544152,3.36963892 18.4478144,2 15,2 Z M16,19 L16,18.7 C16.0234003,17.568703 16.6230808,16.5277481 17.59,15.94 C19.353659,15.0024067 20.2928172,13.0183843 19.9,11.06 C19.4609536,8.94150721 17.7259572,7.33502906 15.58,7.06 C14.1670665,6.89496589 12.7507268,7.33958709 11.6856144,8.28253608 C10.620502,9.22548506 10.0074649,10.5774806 10,12 C10,12.5522847 10.4477153,13 11,13 C11.5522847,13 12,12.5522847 12,12 C11.9937672,11.1378605 12.3587552,10.3147127 13.0018743,9.74049921 C13.6449934,9.1662857 14.5040708,8.89651803 15.36,9 C16.6560974,9.17618304 17.6968967,10.1567044 17.95,11.44 C18.03,11.85 18.29,13.1 16.52,14.23 C14.9651906,15.1855675 14.012721,16.8750672 14,18.7 L14,19 C14,19.5522847 14.4477153,20 15,20 C15.5522847,20 16,19.5522847 16,19 Z M15,21 C14.4477153,21 14,21.4477153 14,22 C14,22.5522847 14.4477153,23 15,23 C15.5522847,23 16,22.5522847 16,22 C16,21.4477153 15.5522847,21 15,21 Z"></path>
-                                </g>
+            <div class="cart__gift-box">
+                <button type="button">Add gift box for&nbsp;<span class="money">€7.00 EUR</span></button>
+                <button type="button" title="View Gift Box Details">
+                    <svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="presentation">
+                        <title>Help Icon</title>
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g fill="#000" fill-rule="nonzero">
+                                <path d="M15,30 C6.71572875,30 -2.55351296e-15,23.2842712 -3.55271368e-15,15 C-4.5519144e-15,6.71572875 6.71572875,-2.10942375e-15 15,-3.55271368e-15 C23.2842712,-4.99600361e-15 30,6.71572875 30,15 C30,23.2842712 23.2842712,30 15,30 Z M15,2 C7.82029825,2 2,7.82029825 2,15 C2,22.1797017 7.82029825,28 15,28 C22.1797017,28 28,22.1797017 28,15 C28,11.5521856 26.6303611,8.24558476 24.1923882,5.80761184 C21.7544152,3.36963892 18.4478144,2 15,2 Z M16,19 L16,18.7 C16.0234003,17.568703 16.6230808,16.5277481 17.59,15.94 C19.353659,15.0024067 20.2928172,13.0183843 19.9,11.06 C19.4609536,8.94150721 17.7259572,7.33502906 15.58,7.06 C14.1670665,6.89496589 12.7507268,7.33958709 11.6856144,8.28253608 C10.620502,9.22548506 10.0074649,10.5774806 10,12 C10,12.5522847 10.4477153,13 11,13 C11.5522847,13 12,12.5522847 12,12 C11.9937672,11.1378605 12.3587552,10.3147127 13.0018743,9.74049921 C13.6449934,9.1662857 14.5040708,8.89651803 15.36,9 C16.6560974,9.17618304 17.6968967,10.1567044 17.95,11.44 C18.03,11.85 18.29,13.1 16.52,14.23 C14.9651906,15.1855675 14.012721,16.8750672 14,18.7 L14,19 C14,19.5522847 14.4477153,20 15,20 C15.5522847,20 16,19.5522847 16,19 Z M15,21 C14.4477153,21 14,21.4477153 14,22 C14,22.5522847 14.4477153,23 15,23 C15.5522847,23 16,22.5522847 16,22 C16,21.4477153 15.5522847,21 15,21 Z"></path>
                             </g>
-                        </svg>
-                    </button>
-                </div><div class="cart__totals">
-                    <div class="cart__subtotal" data-subtotal="1500">Subtotal: <span class="gip-secondary-cart-total notranslate" data-gip-converted="true">€14.00 EUR</span></div>
-                </div>
-                <a href="@Url.Action("Create","Orders")" class="cart__checkout button button--large button--full button--teal">Checkout</a>
-                <div class="cart__notice "><strong>FREE</strong> unicors skikers pack with every order!</div>
+                        </g>
+                    </svg>
+                </button>
+            </div><div class="cart__totals">
+                <div class="cart__subtotal" data-subtotal="1500">Subtotal: <span class="gip-secondary-cart-total">€ @ViewBag.totalPrice EUR</span></div>
             </div>
-
+            <a href="@Url.Action("Create","Orders")" class="cart__checkout button button--large button--full button--teal">Checkout</a>
+            <div class="cart__notice "><strong>FREE</strong> unicors skikers pack with every order!</div>
         </div>
     </div>
+</div>

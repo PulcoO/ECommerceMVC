@@ -457,7 +457,6 @@ D:\Repository\Ecommerce(Poe)\ECommerceMVC\ECommerceMVC\obj\Debug\netcoreapp3.1\R
 D:\Repository\Ecommerce(Poe)\ECommerceMVC\ECommerceMVC\obj\Debug\netcoreapp3.1\Razor\Views\Products\Details.cshtml.g.cs
 D:\Repository\Ecommerce(Poe)\ECommerceMVC\ECommerceMVC\obj\Debug\netcoreapp3.1\Razor\Views\Products\Edit.cshtml.g.cs
 D:\Repository\Ecommerce(Poe)\ECommerceMVC\ECommerceMVC\obj\Debug\netcoreapp3.1\Razor\Views\Products\Index.cshtml.g.cs
-D:\Repository\Ecommerce(Poe)\ECommerceMVC\ECommerceMVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\AjoutElementFormulaire.cshtml.g.cs
 D:\Repository\Ecommerce(Poe)\ECommerceMVC\ECommerceMVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ProductsCards.cshtml.g.cs
 D:\Repository\Ecommerce(Poe)\ECommerceMVC\ECommerceMVC\obj\Debug\netcoreapp3.1\Razor\Views\Product_Image\Create.cshtml.g.cs
 D:\Repository\Ecommerce(Poe)\ECommerceMVC\ECommerceMVC\obj\Debug\netcoreapp3.1\Razor\Views\Product_Image\Delete.cshtml.g.cs
@@ -539,3 +538,8 @@ D:\Repository\Ecommerce(Poe)\ECommerceMVC\ECommerceMVC\obj\Debug\netcoreapp3.1\R
 D:\Repository\Ecommerce(Poe)\ECommerceMVC\ECommerceMVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ProductDetails__upsellProduct.cshtml.g.cs
 D:\Repository\Ecommerce(Poe)\ECommerceMVC\ECommerceMVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ProductDetails__comment.cshtml.g.cs
 D:\Repository\Ecommerce(Poe)\ECommerceMVC\ECommerceMVC\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Products__Top5_Charts.cshtml.g.cs
+D:\Repository\Ecommerce(Poe)\ECommerceMVC\ECommerceMVC\obj\Debug\netcoreapp3.1\Razor\Views\Comments\Create.cshtml.g.cs
+D:\Repository\Ecommerce(Poe)\ECommerceMVC\ECommerceMVC\obj\Debug\netcoreapp3.1\Razor\Views\Comments\Delete.cshtml.g.cs
+D:\Repository\Ecommerce(Poe)\ECommerceMVC\ECommerceMVC\obj\Debug\netcoreapp3.1\Razor\Views\Comments\Details.cshtml.g.cs
+D:\Repository\Ecommerce(Poe)\ECommerceMVC\ECommerceMVC\obj\Debug\netcoreapp3.1\Razor\Views\Comments\Edit.cshtml.g.cs
+D:\Repository\Ecommerce(Poe)\ECommerceMVC\ECommerceMVC\obj\Debug\netcoreapp3.1\Razor\Views\Comments\Index.cshtml.g.cs

@@ -20,7 +20,7 @@
                     </a>
                 </div>
             </div>
-            <button type="button" value="@Url.Action("Ajax_Add", "Cart", Model)" class="product__add-to-cart complete-shoppingCart__cta button button--black">Add</button>
+            <button type="button" onclick="addToCart(this.dataset.path)" data-path="@Url.Action("Ajax_Add","Cart",Model)" class="product__add-to-cart complete-shoppingCart__cta button button--black">Add</button>
         </form>
     </div>
 </section>

@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="product-card_img-inner">
-                    @if (Model.Product_Images.Count == 0)
+                    @if (Model.Product_Images == null | Model.Product_Images.Count == 0)
                     {
                         <img src="~/ImagesDefault/NoImage.png" />
                     }
@@ -46,7 +46,7 @@
             </div>
         </a>
         <div class="product-card_button">
-            <button type="button" class="product__add-to-cart btn" value="@Url.Action("Ajax_Add", "Cart", Model)">
+            <button type="button" onclick="addToCart(this.dataset.path)" data-path="@Url.Action("Ajax_Add", "Cart", Model)" class="product__add-to-cart btn">
                 ADD TO CART
             </button>
         </div>

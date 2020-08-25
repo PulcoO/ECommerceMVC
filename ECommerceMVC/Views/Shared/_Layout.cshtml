@@ -36,9 +36,9 @@
                 </button>
 
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link text-dark cart-icon" href="#"><i class="fas fa-shopping-cart"></i></a>
+                            <a class="nav-link text-dark cart-icon" href="#" onclick="OpenCart()"><i class="fas fa-shopping-cart"></i></a>
                         </li>
                     </ul>
                     <ul class="navbar-nav flex-grow-1">
@@ -334,10 +334,14 @@
     @*<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>*@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
     @RenderSection("Scripts", required: false)
+    @RenderSection("ShoppingCartScripts", required: false)
     @RenderSection("ScriptsAdministration", required: false)
     @RenderSection("ScriptsShoppingList", required: false)
     @RenderSection("ProductDetailsScripts", required: false)
+    @RenderSection("DetailsCardsScript", required: false)
+    <script src="@Url.Content("~/js/Button/button.js")"></script>
     <script>
         $(function () {
             $.ajax({
@@ -351,39 +355,17 @@
                     console.log("error")
                 }
             });
-        });
-        $(document).ready(function () {
-            $(".product__add-to-cart").click(function (event) {
-                var path = event.target.value;
-                $.ajax({
-                    type: "GET",
-                    url: path,
-                    contentType: "html",
-                    success: function (html) {
-                        $('#cartSection').html(html);
-                    },
-                    error: function (msg) {
-                        console.log("error")
-                    }
-                });
-                $(".cart").addClass("active")
-            });
-        });
-        $(document).ready(function () {
-            $(".cart__").click(function (event) {
-                console.log(event)
-                $(".cart").removeClass("active");
-                $(".overlay").removeClass("active");
-            });
-            $(".icon-close").click(function (event) {
-                console.log(event)
-                $(".cart").removeClass("active");
-                $(".overlay").removeClass("active");
-            });
-        });
-        $(document).ready(function () {
-            $("#cartSection").load('<%= Url.Action("OnGetPartial", "Cart") %>');
-        });
+        }
+        );
+        //dois rester ici : autrement ne fonctionne pas ni dans button et on ne parle meme pas de le mettre dans le cart ! ASP c'est tellement de la merde !
+        function CloseCart() {
+            $(".cart").removeClass("active");
+            $(".overlay").removeClass("active");
+        }
+        function OpenCart() {
+            $(".cart").addClass("active");
+            $(".overlay").addClass("active");
+        }
     </script>
 </body>
 </html>

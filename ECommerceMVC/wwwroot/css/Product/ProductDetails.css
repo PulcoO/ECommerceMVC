@@ -2249,3 +2249,9 @@ body {
             z-index: -1;
             background-color: #E1F7F6;
         }
+.product__comments_btn_creation{
+    display:flex;
+    width:100%;
+    justify-content:center;
+
+}

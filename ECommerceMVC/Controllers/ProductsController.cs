@@ -67,6 +67,7 @@ namespace ECommerceMVC.Controllers
                 return NotFound();
             }
             var upSellProduct = _context.Products.Find(11);
+
             ViewBag.upsellProduct = upSellProduct;
 
             return View("DetailsCard",product);

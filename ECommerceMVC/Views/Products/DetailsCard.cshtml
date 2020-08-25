@@ -9,7 +9,7 @@
 }
 @section Product {
     <link rel="stylesheet" href="~/css/Product/ProductDetails.css" />
-    <link rel="stylesheet" href="~/css/Shared/ProductCard2.css"/>
+    <link rel="stylesheet" href="~/css/Shared/ProductCard2.css" />
 }
 
 
@@ -100,7 +100,7 @@
                     <button type="button">+</button>
                 </div>
 
-                <button type="button" class="product__add-to-cart button button--large button--full button--teal" value="@Url.Action("Ajax_Add", "Cart", Model)">Add to Cart</button>
+                <button type="button" class="product__add-to-cart button button--large button--full button--teal" onclick="addToCart(this.dataset.path)" data-path="@Url.Action("Ajax_Add", "Cart", Model)">Add to Cart</button>
             </form>
 
             <partial name="_ProductDetails__upsellProduct" model="ViewBag.upsellProduct" />
@@ -145,35 +145,62 @@
     </div>
 </section>
 <section class="product__why">
-
 </section>
 <section class="product__comments">
     <div class="section-title" role="heading">
         <span>★ ★ ★ ★ ★</span>
         <h3>71 REVIEWS</h3>
     </div>
+    <div class="product__comments_btn_creation" id="formSection">
+        <button type="button" id="addComment" value="@Url.Action("Create", "Comments", Model)">
+            COMMENT
+        </button>
+        @*<a href="@Url.Action("Create", "Comments", Model)">Send A</a>*@
+    </div>
     <div class="comment-nav-content">
-        <partial name="_productDetails__comment"/>
+        @foreach (var comment in Model.Comments)
+        {
+            <partial name="_productDetails__comment" model="comment" />
+        }
+
     </div>
 </section>
 
-<script>
-    var acc = document.getElementsByClassName("product__accordion-title");
-    var i;
+@section DetailsCardsScript {
+    <script>
+        var acc = document.getElementsByClassName("product__accordion-title");
+        var i;
 
-    for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            console.log(panel)
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
-            }
-            
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                console.log(panel)
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+
+            });
+        };
+        //button to load comment form
+        $("#addComment").click(function (event) {
+            var path = event.target.value;
+            console.log(event)
+            $.ajax({
+                type: "GET",
+                url: path,
+                contentType: "html",
+                success: function (html) {
+                    $('#formSection').html(html);
+                },
+                error: function (msg) {
+                    console.log("error")
+                }
+            });
         });
-    }
-</script>
-
+    </script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
 

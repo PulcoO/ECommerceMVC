@@ -1,11 +1,21 @@
-﻿<article>
-    <div class="comment-card__header">
-        <div>Name</div>
-    </div>
-    <div class="comment-card__body">
+﻿@model ECommerceMVC.Models.Comments.Comment
 
-    </div>
-    <div class="comment-card__">
+@if (Model != null)
+{
+    <article>
+        <div class="comment-card__header">
+            <div>@Model.Client.UserName</div>
+            <div>@Model.Product.Name</div>
+        </div>
+        <div class="comment-card__body">
+            <div>@Model.Content</div>
+        </div>
+        <div class="comment-card__">
 
-    </div>
-</article>
+        </div>
+    </article>
+}
+else
+{
+
+}

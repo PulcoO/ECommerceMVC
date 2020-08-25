@@ -27,6 +27,7 @@ namespace ECommerceMVC.Models.Comments
         public string ClientId { get; set; }
         [Required]
         public int ProductId { get; set; }
+        public bool Verifed { get; set; }
 
 
     }
