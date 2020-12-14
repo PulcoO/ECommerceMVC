@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Repository\\Ecommerce(Poe)\\ECommerceMVC\\ECommerceMVC\\ECommerceMVC.csproj": {}
+    "C:\\Users\\maveys\\Documents\\GitHub\\ECommerceMVC\\ECommerceMVC\\ECommerceMVC.csproj": {}
   },
   "projects": {
-    "D:\\Repository\\Ecommerce(Poe)\\ECommerceMVC\\ECommerceMVC\\ECommerceMVC.csproj": {
+    "C:\\Users\\maveys\\Documents\\GitHub\\ECommerceMVC\\ECommerceMVC\\ECommerceMVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Repository\\Ecommerce(Poe)\\ECommerceMVC\\ECommerceMVC\\ECommerceMVC.csproj",
+        "projectUniqueName": "C:\\Users\\maveys\\Documents\\GitHub\\ECommerceMVC\\ECommerceMVC\\ECommerceMVC.csproj",
         "projectName": "ECommerceMVC",
-        "projectPath": "D:\\Repository\\Ecommerce(Poe)\\ECommerceMVC\\ECommerceMVC\\ECommerceMVC.csproj",
-        "packagesPath": "C:\\Users\\PulcoO\\.nuget\\packages\\",
-        "outputPath": "D:\\Repository\\Ecommerce(Poe)\\ECommerceMVC\\ECommerceMVC\\obj\\",
+        "projectPath": "C:\\Users\\maveys\\Documents\\GitHub\\ECommerceMVC\\ECommerceMVC\\ECommerceMVC.csproj",
+        "packagesPath": "C:\\Users\\maveys\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\maveys\\Documents\\GitHub\\ECommerceMVC\\ECommerceMVC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\PulcoO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\maveys\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -30,6 +30,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -41,6 +42,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.AspNetCore.Components": {
               "target": "Package",
@@ -119,7 +121,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

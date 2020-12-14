@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace ECommerceMVC.Controllers
 {
-    [Authorize(Roles = "Super Administrator")]
+    //[Authorize(Roles = "Super Administrator")]
     public class AdministrationController : Controller
     {
         private readonly RoleManager<IdentityRole> _roleManager;
